@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <option name="BUILD_PROCESS_HEAP_SIZE" value="1024" />
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="mall_common" />
+        <module name="mall_manager_dao" />
+        <module name="mall_manager_interface" />
+        <module name="mall_manager_pojo" />
+        <module name="mall_manager_service" />
+        <module name="mall_manager_web" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="mall_common" target="1.8" />
+      <module name="mall_manager" target="1.8" />
+      <module name="mall_manager_dao" target="1.8" />
+      <module name="mall_manager_interface" target="1.8" />
+      <module name="mall_manager_pojo" target="1.8" />
+      <module name="mall_manager_service" target="1.8" />
+      <module name="mall_manager_web" target="1.8" />
+      <module name="mall_parent" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+</project>
