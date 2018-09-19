@@ -1,6 +1,7 @@
 package com.mall.controller;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 /**
  * 页面跳转
@@ -15,6 +16,12 @@ public class PageController {
     @RequestMapping(value = "/")
     public String showIndex() {
         return "index";
+    }
+
+
+    @RequestMapping(value = "/{uri}")
+    public String showItemList(@PathVariable String uri) {
+        return uri;
     }
 
 }

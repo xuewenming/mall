@@ -1,8 +1,16 @@
 package com.mall.pojo;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class TbItem {
+/**
+ * 商品表
+ * @author Sam
+ * @date 2018/9/18
+ * @time 19:04
+ */
+public class TbItem implements Serializable {
+    private static final long serialVersionUID = -3476181874427302969L;
     private Long id;
 
     private String title;

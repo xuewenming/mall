@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 /**
- * 测试框架
+ * 测试框架集成
  * @author Sam
  * @date 2018/9/18
  * @time 19:04
