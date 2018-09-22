@@ -19,7 +19,7 @@
 	                       http://www.springframework.org/schema/util
 	                       http://www.springframework.org/schema/util/spring-util.xsd">
 
-    <context:component-scan base-package="com.mall"></context:component-scan>
+    <context:component-scan base-package="com.mall.service"></context:component-scan>
     <!-- 使用dubbo发布服务 -->
     <!-- 提供方应用信息，用于计算依赖关系 -->
     <dubbo:application name="taotao-manager" />
@@ -29,5 +29,6 @@
     <!-- 声明需要暴露的服务接口 -->
     <dubbo:service interface="com.mall.service.TestService" ref="testServiceImpl" timeout="30000" />
     <dubbo:service interface="com.mall.service.ItemService" ref="itemServiceImpl" timeout="30000"/>
+    <dubbo:service interface="com.mall.service.ItemCatService" ref="itemCatServiceImpl" timeout="30000"/>
 
 </beans>

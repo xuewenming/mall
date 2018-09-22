@@ -14,7 +14,7 @@
                            http://www.springframework.org/schema/context
                            http://www.springframework.org/schema/context/spring-context.xsd">
 
-    <context:component-scan base-package="com.mall" />
+    <context:component-scan base-package="com.mall.controller" />
     <mvc:annotation-driven />
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <property name="prefix" value="/WEB-INF/jsp/" />
@@ -30,4 +30,5 @@
     <dubbo:registry protocol="zookeeper" address="192.168.24.129:2181"/>
     <dubbo:reference  interface="com.mall.service.TestService" id="testService" timeout="30000" />
     <dubbo:reference  interface="com.mall.service.ItemService" id="itemService" timeout="30000"/>
+    <dubbo:reference interface="com.mall.service.ItemCatService" id="itemCatService" timeout="30000"/>
 </beans>
