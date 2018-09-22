@@ -21,18 +21,19 @@ import java.util.List;
 public class ItemServiceImpl implements ItemService {
 
     @Autowired
-    private TbItemMapper tbItemMapper;
+    private TbItemMapper itemMapper;
 
     @Override
-    public EasyUIDataGridResult getItemList(int page, int rows) {
+    public EasyUIDataGridResult getItemList(Integer page, Integer rows) {
         PageHelper.startPage(page,rows);
 
         TbItemExample example = new TbItemExample();
-        List<TbItem> tbItems = tbItemMapper.selectByExample(example);
+        List<TbItem> tbItems = itemMapper.selectByExample(example);
 
-        PageInfo info = new PageInfo(tbItems);
+        PageInfo pageInfo = new PageInfo(tbItems);
+
         EasyUIDataGridResult result = new EasyUIDataGridResult();
-        result.setTotal((int) info.getTotal());
+        result.setTotal(pageInfo.getTotal());
         result.setRows(tbItems);
         return result;
     }

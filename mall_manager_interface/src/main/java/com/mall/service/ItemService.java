@@ -9,5 +9,11 @@ import com.mall.common.pojo.EasyUIDataGridResult;
  * @time 20:57
  */
 public interface ItemService {
-    EasyUIDataGridResult getItemList(int page,int rows);
+    /**
+     * 查询商品
+     * @param page
+     * @param rows
+     * @return
+     */
+    EasyUIDataGridResult getItemList(Integer page, Integer rows);
 }
