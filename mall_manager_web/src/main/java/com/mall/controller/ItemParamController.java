@@ -1,12 +1,11 @@
 package com.mall.controller;
 
 import com.mall.common.pojo.EasyUIDataGridResult;
+import com.mall.common.pojo.TaotaoResult;
 import com.mall.service.ItemParamService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * 商品分类规格参数模板
@@ -25,6 +24,14 @@ public class ItemParamController {
     public EasyUIDataGridResult getItemParam(Integer page,Integer rows) {
         EasyUIDataGridResult result = itemParamService.getItemParamList(page, rows);
         return result;
+    }
+
+
+    @RequestMapping(value = "/item/param/query/itemcatid/{cid}")
+    @ResponseBody
+    public TaotaoResult getItemParamById(@PathVariable long cid) {
+        TaotaoResult itemParamById = itemParamService.getItemParamById(cid);
+        return itemParamById;
     }
 
 }

@@ -3,6 +3,7 @@ package com.mall.service.impl;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.mall.common.pojo.EasyUIDataGridResult;
+import com.mall.common.pojo.TaotaoResult;
 import com.mall.mapper.TbItemParamMapper;
 import com.mall.pojo.TbItemParam;
 import com.mall.pojo.TbItemParamExample;
@@ -33,5 +34,15 @@ public class ItemParamServiceImpl implements ItemParamService {
         result.setTotal(pageInfo.getTotal());
         result.setRows(tbItemParams);
         return result;
+    }
+
+    @Override
+    public TaotaoResult getItemParamById(Long cid) {
+        TbItemParam tbItemParam = itemParamMapper.selectByPrimaryKey(cid);
+        if (tbItemParam != null) {
+            return TaotaoResult.ok(tbItemParam);
+        }
+
+        return TaotaoResult.ok();
     }
 }
