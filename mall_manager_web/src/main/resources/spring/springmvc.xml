@@ -39,4 +39,5 @@
     <dubbo:reference  interface="com.mall.service.ItemService" id="itemService" timeout="30000"/>
     <dubbo:reference interface="com.mall.service.ItemCatService" id="itemCatService" timeout="30000"/>
     <dubbo:reference interface="com.mall.service.PictureService" id="pictureService" timeout="30000"/>
+    <dubbo:reference interface="com.mall.service.ItemParamService" id="itemParamService" timeout="30000"/>
 </beans>
