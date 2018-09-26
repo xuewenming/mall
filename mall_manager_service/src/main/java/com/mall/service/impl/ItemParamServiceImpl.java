@@ -44,7 +44,7 @@ public class ItemParamServiceImpl implements ItemParamService {
         criteria.andItemCatIdEqualTo(cid);
         List<TbItemParam> tbItemParams = itemParamMapper.selectByExampleWithBLOBs(example);
         if (tbItemParams != null && tbItemParams.size() > 0) {
-            return TaotaoResult.ok(tbItemParams);
+            return TaotaoResult.ok(tbItemParams.get(0));
         }
 
         return TaotaoResult.ok();
@@ -60,6 +60,4 @@ public class ItemParamServiceImpl implements ItemParamService {
         itemParamMapper.insert(itemParam);
         return TaotaoResult.ok();
     }
-
-
 }

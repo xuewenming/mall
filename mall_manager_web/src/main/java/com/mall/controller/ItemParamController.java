@@ -45,4 +45,11 @@ public class ItemParamController {
         return result;
     }
 
+    @RequestMapping(value = "cid/{cid}")
+    @ResponseBody
+    public TaotaoResult getItemParam(@PathVariable long cid) {
+        TaotaoResult itemParamById = itemParamService.getItemParamById(cid);
+        return itemParamById;
+    }
+
 }

@@ -7,9 +7,11 @@ import com.mall.common.pojo.IDUtils;
 import com.mall.common.pojo.TaotaoResult;
 import com.mall.mapper.TbItemDescMapper;
 import com.mall.mapper.TbItemMapper;
+import com.mall.mapper.TbItemParamItemMapper;
 import com.mall.pojo.TbItem;
 import com.mall.pojo.TbItemDesc;
 import com.mall.pojo.TbItemExample;
+import com.mall.pojo.TbItemParamItem;
 import com.mall.service.ItemService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -29,6 +31,8 @@ public class ItemServiceImpl implements ItemService {
     private TbItemMapper itemMapper;
     @Autowired
     private TbItemDescMapper itemDescMapper;
+    @Autowired
+    private TbItemParamItemMapper itemParamItemMapper;
 
     @Override
     public EasyUIDataGridResult getItemList(Integer page, Integer rows) {
@@ -46,7 +50,7 @@ public class ItemServiceImpl implements ItemService {
     }
 
     @Override
-    public TaotaoResult createItem(TbItem tbItem, String desc) {
+    public TaotaoResult createItem(TbItem tbItem, String desc,String itemParams) {
         long itemId = IDUtils.genItemId();
         tbItem.setId(itemId);
         //商品状态1-正常，2-下架，3-删除
@@ -60,9 +64,15 @@ public class ItemServiceImpl implements ItemService {
         itemDesc.setCreated(new Date());
         itemDesc.setUpdated(new Date());
 
+        TbItemParamItem itemParamItem = new TbItemParamItem();
+        itemParamItem.setItemId(itemId);
+        itemParamItem.setParamData(itemParams);
+        itemParamItem.setCreated(new Date());
+        itemParamItem.setUpdated(new Date());
+
         itemMapper.insert(tbItem);
         itemDescMapper.insert(itemDesc);
-
+        itemParamItemMapper.insert(itemParamItem);
         return TaotaoResult.ok();
     }
 }

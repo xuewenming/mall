@@ -20,10 +20,11 @@ public interface ItemService {
     EasyUIDataGridResult getItemList(Integer page, Integer rows);
 
     /**
-     * 创建新商品
-     * @param tbItem    商品
-     * @param desc 商品描述
+     *  创建新商品
+     * @param tbItem
+     * @param desc
+     * @param itemParams
      * @return
      */
-    TaotaoResult createItem(TbItem tbItem, String desc);
+    TaotaoResult createItem(TbItem tbItem, String desc,String itemParams);
 }
