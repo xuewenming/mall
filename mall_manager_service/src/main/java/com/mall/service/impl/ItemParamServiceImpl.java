@@ -11,6 +11,7 @@ import com.mall.service.ItemParamService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -38,11 +39,27 @@ public class ItemParamServiceImpl implements ItemParamService {
 
     @Override
     public TaotaoResult getItemParamById(Long cid) {
-        TbItemParam tbItemParam = itemParamMapper.selectByPrimaryKey(cid);
-        if (tbItemParam != null) {
-            return TaotaoResult.ok(tbItemParam);
+        TbItemParamExample example = new TbItemParamExample();
+        TbItemParamExample.Criteria criteria = example.createCriteria();
+        criteria.andItemCatIdEqualTo(cid);
+        List<TbItemParam> tbItemParams = itemParamMapper.selectByExampleWithBLOBs(example);
+        if (tbItemParams != null && tbItemParams.size() > 0) {
+            return TaotaoResult.ok(tbItemParams);
         }
 
         return TaotaoResult.ok();
     }
+
+    @Override
+    public TaotaoResult crateItemParam(Long cid, String paramDate) {
+        TbItemParam itemParam = new TbItemParam();
+        itemParam.setItemCatId(cid);
+        itemParam.setParamData(paramDate);
+        itemParam.setCreated(new Date());
+        itemParam.setUpdated(new Date());
+        itemParamMapper.insert(itemParam);
+        return TaotaoResult.ok();
+    }
+
+
 }

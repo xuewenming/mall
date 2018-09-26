@@ -24,4 +24,12 @@ public interface ItemParamService {
      * @return
      */
     TaotaoResult getItemParamById(Long cid);
+
+    /**
+     * 创建商品规格分类和规格项
+     * @param cid
+     * @param paramDate
+     * @return
+     */
+    TaotaoResult crateItemParam(Long cid,String paramDate);
 }
